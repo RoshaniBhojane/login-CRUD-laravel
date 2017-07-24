@@ -35,8 +35,7 @@
                                                     <th> No </th>
                                                     <th> First Name </th>
                                                     <th> Last Name </th>
-                                                    <th> Username </th>
-                                                    <th> Status </th>
+                                                    <th> Username </th> 
                                                     <th> Action </th>
                                                 </tr>
                                             </thead>
@@ -49,10 +48,7 @@
                                                         <td> {{$no}} </td>
                                                         <td> {{$user->username}} </td>
                                                         <td> {{$user->display_name}} </td>
-                                                        <td> {{$user->email}} </td>
-                                                        <td>
-                                                            <span class="label label-sm label-danger"> Blocked </span>
-                                                        </td>
+                                                        <td> {{$user->email}} </td> 
                                                         <td>
                                                             <a href="{{route('user.edit', $user->id)}}" class="btn btn-outline btn-circle btn-sm purple">
                                                             <i class="fa fa-edit"></i> Edit </a> 
