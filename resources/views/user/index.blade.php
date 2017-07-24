@@ -16,6 +16,16 @@
                                         <i class="icon-settings font-red"></i>
                                         <span class="caption-subject font-red sbold uppercase">User Table</span>
                                     </div> 
+                                    <div class="actions pull-right"> 
+                                       
+                                        <a href="user/create">
+                                            <label class="label label-sm label-danger">
+                                                <i class="fa fa-edit"></i> 
+                                            Add 
+                                            </label>
+                                        </a>
+                                        
+                                    </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="table-scrollable table-scrollable-borderless">
@@ -44,7 +54,7 @@
                                                             <span class="label label-sm label-danger"> Blocked </span>
                                                         </td>
                                                         <td>
-                                                            <a href="javascript:;" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <a href="{{route('user.edit', $user->id)}}" class="btn btn-outline btn-circle btn-sm purple">
                                                             <i class="fa fa-edit"></i> Edit </a> 
 
                                                             <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black">

@@ -25,4 +25,66 @@ class UserController extends Controller
     { 
         return view('user/index', ['users' => $user::get()]); 
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('user.create');
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @author Fathur Rohman <fathur@dragoncapital.center>
+     */
+    public function store(Request $request)
+    {
+        User::create([
+            'username'      => $request->get('username'),
+            'display_name'  => $request->get('display_name'), 
+            'email'         => $request->get('email'),
+            'password'      => bcrypt($request->get('password'))
+        ]);
+
+        return redirect()->route('user.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    { 
+        $user = User::find($id);
+        return view('user.edit',['user' => $user]);
+    }
+
+    /**
+     * @param Request $request
+     * @param         $id
+     *
+     * @author Fathur Rohman <fathur@dragoncapital.center>
+     */
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->username = $request->get('username');
+        $user->display_name = $request->get('display_name');
+        $user->email = $request->get('email'); 
+
+        if($request->get('password') != '')
+        {
+            $user->password = bcrypt($request->get('password'));
+        }
+
+        $user->save();
+        return redirect()->route('user.index');
+    }
 }
