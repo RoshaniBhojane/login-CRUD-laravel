@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Update User</div>
+                <div class="panel-heading">View User</div>
 
                 <div class="panel-body">
                      <div class="col-md-13">
@@ -19,27 +19,19 @@
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        {!! Form::text('display_name', null, ['id'=>"name", 'placeholder'=>"Name", 'class'=>"form-control", 'required']) !!}
+                                        {!! Form::text('display_name', null, ['id'=>"name", 'placeholder'=>"Name", 'class'=>"form-control", 'required','readonly' => "readonly"]) !!}
                                     </div>
                                     <div class="form-group">
                                         <label for="username">Username</label>
-                                        {!! Form::text('username', null, ['id'=>"username", 'placeholder'=>"Username", 'class'=>"form-control", 'required']) !!}
+                                        {!! Form::text('username', null, ['id'=>"username", 'placeholder'=>"Username", 'class'=>"form-control", 'required','readonly' => "readonly"]) !!}
 
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        {!! Form::email('email', null, ['id'=>"email", 'placeholder'=>"Email", 'class'=>"form-control"], 'required') !!}
+                                        {!! Form::email('email', null, ['id'=>"email", 'placeholder'=>"Email", 'class'=>"form-control",'readonly' => "readonly"], 'required') !!}
 
-                                    </div>  
-                                    <div class="form-group">
-                                        <label for="name">Password <br><small class="text-danger">Type to change password, left empty to use old password.</small></label>
-                                        <input type="password" name="password" id="password" placeholder="Type to change password" class="form-control"/>
-                                    </div> 
-                                </div>
-
-                                <button type="submit" class="btn btn-info btn-block btn-lg save">
-                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Update
-                                </button>
+                                    </div>   
+                                </div> 
                                 {!! Form::close() !!} 
                                 </div>
                             </div>

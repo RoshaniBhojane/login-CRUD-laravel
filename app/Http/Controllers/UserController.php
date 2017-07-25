@@ -66,6 +66,19 @@ class UserController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function detail(Request $request)
+    { 
+        $id = $request->get('id');
+        $user = User::find($id);
+        return view('user.view',['user' => $user]);
+    }
+
+    /**
      * @param Request $request
      * @param         $id
      *
@@ -86,5 +99,16 @@ class UserController extends Controller
 
         $user->save();
         return redirect()->route('user.index');
+    }
+
+    public function destroy(Request $request)
+    {     
+        $id = $request->get('id');
+        $user = User::destroy($id);
+
+        if($user){
+            $request->session()->invalidate();
+            return $user;
+        }
     }
 }

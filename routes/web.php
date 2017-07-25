@@ -20,7 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home'); 
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function ($app) {
-   Route::resource('user', 'UserController', ['only' => ['index', 'store', 'edit', 'update']]);
+   Route::resource('user', 'UserController', ['only' => ['index','detail','store', 'edit', 'update','destroy']]);
    Route::get('/', 'UserController@index'); 
    Route::get('/create', ['uses' => 'UserController@create', 'as' => 'user.create']);
+   Route::put('/destroy', 'UserController@destroy');
+   Route::get('/detail', ['uses' => 'UserController@detail', 'as' => 'user.detail']); 
 }); 
