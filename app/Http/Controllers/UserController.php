@@ -38,8 +38,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     *
-     * @author Fathur Rohman <fathur@dragoncapital.center>
+     * 
      */
     public function store(Request $request)
     {
@@ -81,8 +80,7 @@ class UserController extends Controller
     /**
      * @param Request $request
      * @param         $id
-     *
-     * @author Fathur Rohman <fathur@dragoncapital.center>
+     * 
      */
     public function update(Request $request, $id)
     {
